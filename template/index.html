@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tell me more</title>
+</head>
+<style>
+    body {
+        background-color: antiquewhite;
+    }
+
+    div {
+        background-color: rosybrown;
+        width: 800px;
+        height: 500px;
+        position: absolute;
+        top: 42%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid rosybrown;
+        border-radius: 30px;
+    }
+
+    .c {
+        background-image: url(../static/images/first.jpg);
+        width: 650px;
+        height: 500px;
+        background-size: cover;
+        filter: blur(1.5px);
+        -webkit-filter: blur(1.5px);
+    }
+
+    h2 {
+        font-size: 80px;
+        position: absolute;
+        top: 36%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: Brush Script MT, Brush Script Std, cursive;
+        color: rgb(121, 121, 242);
+        background-color: rgb(245, 209, 209);
+        border: 1px solid rgb(245, 209, 209);
+        border-radius: 50px;
+    }
+
+    button {
+        position: absolute;
+        top: 89%;
+        left: 49%;
+        transform: translate(-50%, -50%);
+        font-size: 50px;
+        background-color: rgb(147, 111, 180);
+        color: white;
+        font-family: Apple Chancery, cursive;
+        border: 1px solid rgb(147, 111, 180);
+        border-radius: 20px;
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    <div></div>
+    <div class="c">
+    </div>
+    <h2>Tell Me More</h2>
+    <a href="{{ url_for('login')}}" ><button>Get Started</button></a>
+</body>
+
+</html>

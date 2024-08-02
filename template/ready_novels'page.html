@@ -1,0 +1,917 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <title>Tell Me More</title>
+    <link rel="stylesheet" href="pagge1.css">
+</head>
+<style>
+     :root {
+        --main-color: rgb(181, 163, 201);
+        --main-color-alt: rgb(207, 189, 228);
+        --main-transition: 0.3s;
+        --main-paddingg-top: 100px;
+        --main-paddingg-bottom: 100px;
+    }
+    
+    html {
+        scroll-behavior: smooth;
+    }
+    
+    body {
+        font-family: 'cairo', sans-serif;
+        /* background-image: linear-gradient(to right, rgb(248, 221, 189), rgb(244, 193, 131), rgb(240, 189, 127)); */
+    }
+    
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    a {
+        text-decoration: none;
+    }
+    
+    .main-title {
+        text-transform: uppercase;
+        margin: 0 auto 80px;
+        border: 2px solid black;
+        padding: 10px 20px;
+        font-size: 30px;
+        width: fit-content;
+        position: relative;
+        z-index: 1;
+        transition: var(--main-transition);
+    }
+    
+    .main-title::before,
+    .main-title::after {
+        content: '';
+        content: "";
+        width: 12px;
+        height: 12px;
+        background-color: pink;
+        position: absolute;
+        border-radius: 50%;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    
+    .main-title::after {
+        right: -30px;
+    }
+    
+    .main-title::before {
+        left: -30px;
+    }
+    
+    .main-title:hover::before {
+        z-index: -1;
+        animation: left-move 0.5s linear forwards;
+    }
+    
+    .main-title:hover::after {
+        z-index: -1;
+        animation: right-move 0.5s linear forwards;
+    }
+    
+    .main-title:hover {
+        color: var(--main-color);
+        border: 2px solid white;
+        transition-delay: 0.5s;
+    }
+    
+    @keyframes left-move {
+        50% {
+            left: 0;
+            width: 12px;
+            height: 12px;
+        }
+        100% {
+            border-radius: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+    
+    @keyframes right-move {
+        50% {
+            right: 0;
+            width: 12px;
+            height: 12px;
+        }
+        100% {
+            border-radius: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+    
+    .header {
+        background-color: white;
+        -webkit-box-shadow: 0 0 10px #ddd;
+        -moz-box-shadow: 0 0 10px #ddd;
+        box-shadow: 0 0 10px #ddd;
+    }
+    
+    .header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        position: relative;
+    }
+    
+    .header .logo {
+        color: var(--main-color);
+        font-size: 26px;
+        font-weight: bold;
+        height: 72px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .header .main-nav {
+        display: flex;
+    }
+    
+    .header .main-nav>li>a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 72px;
+        position: relative;
+        color: black;
+        padding: 0 30px;
+        overflow: hidden;
+        font-size: 18px;
+        transition: var(--main-transition);
+    }
+    
+    .header .main-nav>li>a ::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 4px;
+        background-color: var(--main-color);
+        top: 0;
+        left: -100px;
+        transition: var(--main-transition);
+    }
+    
+    .header .main-nav>li>a:hover {
+        color: var(--main-color);
+        background-color: #fafafa;
+    }
+    
+    .header .main-nav>li>a :hover ::before {
+        left: 0;
+    }
+    
+    .landing {
+        position: relative;
+    }
+    
+    .landing::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: -40px;
+        width: 100%;
+        height: 100%;
+        background-color: #ececec;
+        z-index: -1;
+        transform: skewY(-6deg);
+        transform-origin: top left;
+    }
+    
+    .landing .container {
+        min-height: calc(100vh - 72px);
+        display: flex;
+        align-items: center;
+        padding-bottom: 120px;
+        padding-right: 150px;
+        padding-left: 50px;
+    }
+    
+    .landing .text {
+        flex: 1;
+    }
+    
+    .landing .text h1 {
+        font-size: 40px;
+        margin: 0;
+        letter-spacing: -3px;
+        color: var(--main-color);
+    }
+    
+    .landing .text p {
+        font-size: 23px;
+        line-height: 1.7;
+        margin: 5px 0 0;
+        color: #666;
+        max-width: 500px;
+        padding-left: 50px;
+    }
+    
+    .landing .text input {
+        width: 150px;
+        height: 50px;
+        background: var(--main-color);
+        color: white;
+        margin: 10px 0;
+        text-transform: uppercase;
+        cursor: pointer;
+        font-style: italic;
+        font-weight: bolder;
+        padding: 5px 10px;
+        margin-top: 38px;
+        align-items: center;
+        margin: 50px;
+    }
+    
+    .landing .image img {
+        position: relative;
+        width: 500px;
+        animation: up-and-down 5s linear infinite;
+    }
+    
+    @keyframes up-and-down {
+        0%,
+        100% {
+            top: 0;
+        }
+        50% {
+            top: -50px;
+        }
+    }
+    
+    .landing .go-down {
+        color: var(--main-color);
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: var(--main-transition);
+    }
+    
+    .landing .go-down:hover {
+        color: pink;
+    }
+    
+    .landing .go-down i {
+        animation: bouncing 1.5s infinite;
+    }
+    
+    @keyframes bouncing {
+        0%,
+        10%,
+        20%,
+        50%,
+        80%,
+        100% {
+            transform: translateY(0);
+        }
+        40%,
+        60% {
+            transform: translateY(-15px);
+        }
+    }
+    
+    .storytell {
+        padding-top: var(--main-paddingg-top);
+        padding-bottom: var(--main-paddingg-bottom);
+        position: relative;
+    }
+    
+    .storytell .container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 0fr));
+        gap: 85px;
+    }
+    
+    .storytell .box {
+        box-shadow: 0 2px 15px rgb(0 0 0 / 10%);
+        background-color: white;
+        border-radius: 6px;
+        overflow: hidden;
+        transition: transform var(--main-transition), box-shadow var(--main-transition);
+    }
+    
+    .storytell .box:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 2px 15px rgb(0 0 0 / 20%);
+    }
+    
+    .storytell .box img {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .storytell .box .content {
+        padding: 5px;
+    }
+    
+    .storytell .box .content h3 {
+        margin: 0;
+    }
+    
+    .storytell .box .content p {
+        margin: 10px 0 0;
+        line-height: 1.5;
+        color: #777;
+    }
+    
+    .storytell .box .info {
+        padding: 5px;
+        border-top: 1px solid #e6e6e7;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .storytell .box .info a {
+        color: var(--main-color);
+        font-weight: bold;
+    }
+    
+    .storytell .box .info i {
+        color: var(--main-color);
+    }
+    
+    .articles .box:hover .info i {
+        animation: moving-arrow 0.6s linear infinite;
+    }
+    
+    @keyframes moving-arrow {
+        100% {
+            transform: translateX(10px);
+        }
+    }
+    /*start footer*/
+    .footer {
+        background-image: url(5.jpg);
+        padding: 70px 0 0;
+    }
+
+    .footer .container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 45px;
+    }
+
+    .footer .box h3 {
+        color: #86007b;
+        font-size: 30px;
+        margin: -40px 9px 29px;
+    }
+
+    .footer .box .social {
+        display: flex;
+    }
+
+    .footer .box .social li {
+        margin-right: 10px;
+    }
+
+    .footer .box .social li a {
+        background-color: #313131;
+        color: #b9b9b9;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+        transition: var(--main-transition);
+    }
+
+    .footer .box .social .facebook:hover {
+        background-color: #1877f2;
+    }
+
+    .footer .box .social .twitter:hover {
+        background-color: #1da1f2;
+    }
+
+    .footer .box .social .youtube:hover {
+        background-color: #ff0000;
+    }
+
+    .footer .box .social .google:hover {
+        background-color: #e74949;
+    }
+
+    .footer .box .social .linkedin-in:hover {
+        background-color: #55abe0;
+    }
+
+    .footer .box .text {
+        line-height: 2;
+        color: #86007b;
+    }
+
+    .footer .box .links li {
+        padding: 15px 0;
+        color: #86007b;
+        transition: var(--main-transition);
+    }
+
+    .footer .box .links li:not(:last-child) {
+        border-bottom: 1px solid rgb(95, 0, 119);
+        color: #86007b;
+    }
+
+    .footer .box .links li:hover {
+        padding-left: 10px;
+        color: #86007b;
+    }
+
+    .footer .box .links li:hover a {
+        color: rgb(0, 0, 0);
+    }
+
+    .footer .box .links li a {
+        color: #86007b;
+        transition: var(--main-transition);
+    }
+
+    .footer .box .links li a::before {
+        font-family: "Font Awesome 5 Free";
+        content: "\F101";
+        font-weight: 900;
+        margin-right: 10px;
+        color: #86007b;
+    }
+
+    .footer .box .line {
+        display: flex;
+        align-items: center;
+        color: #86007b;
+        margin-bottom: 30px;
+    }
+
+    .footer .box .line i {
+        font-size: 25px;
+        color: var(--main-color);
+        margin-right: 10px;
+    }
+
+    .footer .box .line .info {
+        line-height: 1.7;
+        flex: 1;
+    }
+
+    .footer .box .line .info span {
+        display: block;
+    }
+
+    .footer .copyright {
+        padding: 25px 0;
+        text-align: center;
+        color: #86007b;
+        margin: 50px 0 0;
+        border-top: 1px solid #444;
+    }
+
+    /* end footer */
+</style>
+
+
+<body>
+    <!-- start header -->
+    <div class="header" id="header">
+        <div class="container">
+            <a href="#" class="logo">Tell me more</a>
+            <ul class="main-nav">
+                <li> <a href="#storytell">Storytell</a></li>
+                <li> <a href="#profile">Profile</a></li>
+                <li> <a href="#messages">Messages</a></li>
+                <li> <a href="{{ url_for('logout') }}">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- end header -->
+    <!-- start landing -->
+    <div class="landing">
+        <div class="container">
+            <div class="text">
+                <h1>Welcome,{{username}}</h1>
+                <p>Please choose where to get redirected</p>
+                <input type="submit" value="Profile">
+                <input type="submit" value="Storytell">
+            </div>
+
+            <div class="image">
+                <img src="../static/images/landing-image.jpg" alt="">
+            </div>
+
+        </div>
+        <a href="#storytell" class="go-down"> <i class="fas fa-angle-double-down fa-2x"></i></a>
+    </div>
+    <!-- end landing -->
+    <!-- start storytell -->
+    <div class="storytell">
+        <h2 class="main-title">Adventure novels</h2>
+        <div class="container">
+            <div class="box">
+                <img src="../static/images/The_War_of_the_Worlds_first_edition.jpg" alt="">
+                <div class="content">
+                    <h3>War of the worlds</h3>
+                    <p>BY Herbert Wells</p>
+                </div>
+                <div class="info">
+                    <a href="">Reed More</a>
+                    <i class="fas fa-long-arrow-alt-right"></i>
+                </div>
+            </div>
+            <div class="box">
+                <img src="../static/images/neboromancer.jpg" alt="">
+                <div class="content">
+                    <h3>Neboromancer</h3>
+                    <p>BY William Jason</p>
+                </div>
+                <div class="info">
+                    <a href="">Reed More</a>
+                    <i class="fas fa-long-arrow-alt-right"></i>
+                </div>
+            </div>
+            <div class="box">
+                <img src="../static/images/dune.jpg" alt="">
+                <div class="content">
+                    <h3>Dune</h3>
+                    <p>BY Frank HHerbert</p>
+                </div>
+                <div class="info">
+                    <a href="">Read More</a>
+                    <i class="fas fa-long-arrow-alt-right"></i>
+                </div>
+            </div>
+            <div class="box">
+                <img src="../static/images/dark.jpg" alt="">
+                <div class="content">
+                    <h3>The Dark Tower</h3>
+                    <p>BY FStephen King</p>
+                </div>
+                <div class="info">
+                    <a href="">Reed More</a>
+                    <i class="fas fa-long-arrow-alt-right"></i>
+                </div>
+            </div>
+            <div class="box">
+                <img src="../static/images/mars.jpeg" alt="">
+                <div class="content">
+                    <h3>Chronicles of Mars</h3>
+                    <p>BY Ray Bradry</p>
+                </div>
+                <div class="info">
+                    <a href="">Reed More</a>
+                    <i class="fas fa-long-arrow-alt-right"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="storytell">
+        <h2 class="main-title">Romontic novels</h2>
+        <div class="container">
+            <div class="box">
+                <img src="../static/images/somethink (1).jpg" alt="">
+                <div class="content">
+                    <h3>Somethink Borrowed</h3>
+                    <p>BY Emily Giffin </p>
+                </div>
+                <div class="info">
+                    <a href="">Reed More</a>
+                    <i class="fas fa-long-arrow-alt-right"></i>
+                </div>
+            </div>
+            <div class="box">
+                <img src="../static/images/pride.jpg" alt="">
+                <div class="content">
+                    <h3>Pride and Projudice</h3>
+                    <p>BY Jane Austen</p>
+                </div>
+                <div class="info">
+                    <a href="">Reed More</a>
+                    <i class="fas fa-long-arrow-alt-right"></i>
+                </div>
+            </div>
+            <div class="box">
+                <img src="../static/images/notebook.jpg" alt="">
+                <div class="content">
+                    <h3>The Notebook</h3>
+                    <p>BY Nicholes Sparks</p>
+                </div>
+                <div class="info">
+                    <a href="">Reed More</a>
+                    <i class="fas fa-long-arrow-alt-right"></i>
+                </div>
+            </div>
+            <div class="box">
+                <img src="../static/images/twilight.jpg" alt="">
+                <div class="content">
+                    <h3>Twilight</h3>
+                    <p>BY Stephenie Meyer</p>
+                </div>
+                <div class="info">
+                    <a href="">Reed More</a>
+                    <i class="fas fa-long-arrow-alt-right"></i>
+                </div>
+            </div>
+            <div class="box">
+                <img src="../static/images/love.jpg" alt="">
+                <div class="content">
+                    <h3>Love Story</h3>
+                    <p>BY Terry Ntkinson</p>
+                </div>
+                <div class="info">
+                    <a href="">Reed More</a>
+                    <i class="fas fa-long-arrow-alt-right"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="storytell">
+        <h2 class="main-title">Horror novels</h2>
+        <div class="container">
+            <div class="box">
+                <img src="../static/images/blood.jpg" alt="">
+                <div class="content">
+                    <h3>Drawing Blood</h3>
+                    <p>BY Richard Finey</p>
+                </div>
+                <div class="info">
+                    <a href="">Reed More</a>
+                    <i class="fas fa-long-arrow-alt-right"></i>
+                </div>
+            </div>
+            <div class="box">
+                <img src="../static/images/haunt.jpg" alt="">
+                <div class="content">
+                    <h3>The Haunting of hill house</h3>
+                    <p>BY shiney jackson</p>
+                </div>
+                <div class="info">
+                    <a href="">Reed More</a>
+                    <i class="fas fa-long-arrow-alt-right"></i>
+                </div>
+            </div>
+            <div class="box">
+                <img src="../static/images/fifth.jpg" alt="">
+                <div class="content">
+                    <h3>The fifth child</h3>
+                    <p>BY Dorls Lessing</p>
+                </div>
+                <div class="info">
+                    <a href="">Reed More</a>
+                    <i class="fas fa-long-arrow-alt-right"></i>
+                </div>
+            </div>
+            <div class="box">
+                <img src="../static/images/exor.jfif" alt="">
+                <div class="content">
+                    <h3>The Exorclst</h3>
+                    <p>BY william peter</p>
+                </div>
+                <div class="info">
+                    <a href="">Reed More</a>
+                    <i class="fas fa-long-arrow-alt-right"></i>
+                </div>
+            </div>
+            <div class="box">
+                <img src="../static/images/Dracula_1st_ed_cover_reproduction.jpg" alt="">
+                <div class="content">
+                    <h3>Dracula</h3>
+                    <p>By Bram Stoker</p>
+
+                </div>
+                <div class="info">
+                    <a href="">Reed More</a>
+                    <i class="fas fa-long-arrow-alt-right"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="storytell">
+        <h2 class="main-title">Cartoon novels</h2>
+        <div class="container">
+            <div class="box">
+                <img src="../static/images/pinocchio.jpg" alt="">
+                <div class="content">
+                    <h3>The Adventures of Pinoncchhio</h3>
+                    <p>BY Carlo collodl</p>
+                </div>
+                <div class="info">
+                    <a href="">Reed More</a>
+                    <i class="fas fa-long-arrow-alt-right"></i>
+                </div>
+            </div>
+            <div class="box">
+                <img src="../static/images/1280px-CinderAdelphi.jpg" alt=" ">
+                <div class="content ">
+                    <h3>Cinderella</h3>
+                    <p>BY Marcla Brown</p>
+                </div>
+                <div class="info ">
+                    <a href=" ">Reed More</a>
+                    <i class="fas fa-long-arrow-alt-right "></i>
+                </div>
+            </div>
+            <div class="box ">
+                <img src="../static/images/princess.jpg " alt=" ">
+                <div class="content ">
+                    <h3>A little Princess</h3>
+                    <p>BY Frances odggson</p>
+                </div>
+                <div class="info ">
+                    <a href=" ">Reed More</a>
+                    <i class="fas fa-long-arrow-alt-right "></i>
+                </div>
+            </div>
+            <div class="box ">
+                <img src="../static/images/images (1).jfif" alt=" ">
+                <div class="content ">
+                    <h3>The little medmaid</h3>
+                    <p>BY Hans chhristian</p>
+                </div>
+                <div class="info ">
+                    <a href=" ">Reed More</a>
+                    <i class="fas fa-long-arrow-alt-right "></i>
+                </div>
+            </div>
+            <div class="box ">
+                <img src="../static/images/marvel.jpg" alt=" ">
+                <div class="content ">
+                    <h3>Love Story</h3>
+                    <p>BY Terry Ntkinson</p>
+                </div>
+                <div class="info ">
+                    <a href=" ">Reed More</a>
+                    <i class="fas fa-long-arrow-alt-right "></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="storytell ">
+        <h2 class="main-title ">Comedy novels</h2>
+        <div class="container ">
+            <div class="box ">
+                <img src="../static/images/kill2.jpg" alt=" ">
+                <div class="content ">
+                    <h3>Bears want to kill you</h3>
+                    <p>BY Etan Nlcolla</p>
+                </div>
+                <div class="info ">
+                    <a href=" ">Reed More</a>
+                    <i class="fas fa-long-arrow-alt-right "></i>
+                </div>
+            </div>
+            <div class="box ">
+                <img src="../static/images/how1.jpg" alt=" ">
+                <div class="content ">
+                    <h3>How to kill in comedy</h3>
+                    <p>BY Steven North</p>
+                </div>
+                <div class="info ">
+                    <a href=" ">Reed More</a>
+                    <i class="fas fa-long-arrow-alt-right "></i>
+                </div>
+            </div>
+            <div class="box ">
+                <img src="../static/images/cal2.jpg" alt=" ">
+                <div class="content ">
+                    <h3>Clapso</h3>
+                    <p>BY David Sedaris</p>
+                </div>
+                <div class="info ">
+                    <a href=" ">Reed More</a>
+                    <i class="fas fa-long-arrow-alt-right "></i>
+                </div>
+            </div>
+            <div class="box ">
+                <img src="../static/images/beast.webp" alt=" ">
+                <div class="content ">
+                    <h3>Crazy rich aslans</h3>
+                    <p>BY Kevin kwan</p>
+                </div>
+                <div class="info ">
+                    <a href=" ">Reed More</a>
+                    <i class="fas fa-long-arrow-alt-right "></i>
+                </div>
+            </div>
+            <div class="box ">
+                <img src="../static/images/grownup.jpg" alt=" ">
+                <div class="content ">
+                    <h3>Grown Up</h3>
+                    <p>BY Marian Keyes</p>
+                </div>
+                <div class="info ">
+                    <a href=" ">Reed More</a>
+                    <i class="fas fa-long-arrow-alt-right "></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- end storytell -->
+    <!-- start footer -->
+    <div class="footer ">
+        <div class="container ">
+            <div class="box ">
+                <h3>Tell me more</h3>
+                <ul class="social ">
+                    <li>
+                        <a href="# " class="facebook ">
+                            <i class="fab fa-facebook-f "></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="# " class="twitter ">
+                            <i class="fab fa-twitter "></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="# " class="youtube ">
+                            <i class="fab fa-youtube "></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="# " class="google ">
+                            <i class="fab fa-google "></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="# " class="linkedin-in ">
+                            <i class="fab fa-linkedin-in "></i>
+                        </a>
+                    </li>
+                </ul>
+                <p class="text ">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus nulla rem, dignissimos iste aspernatur
+                </p>
+            </div>
+            <div class="box ">
+                <ul class="links ">
+                    <li>
+                        <a href="#">Comedy novels</a>
+                    </li>
+                    <li>
+                        <a href="#">Romontic novels</a>
+                    </li>
+                    <li>
+                        <a href="#">Action novels</a>
+                    </li>
+                    <li>
+                        <a href="#">Horror novels</a>
+                    </li>
+                    <li>
+                        <a href="#">Adventure novels</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="box ">
+                <div class="line ">
+                    <i class="fas fa-map-marker-alt fa-fw "></i>
+                    <div class="info ">Egypt, Alexandria, Miami</div>
+                </div>
+                <div class="line ">
+                    <i class="fas fa-clock fa-fw "></i>
+                    <div class="info ">Business Hours: From 10:00 To 18:00</div>
+                </div>
+                <div class="line ">
+                    <i class="fas fa-phone-volume fa-fw "></i>
+                    <div class="info ">
+                        <span>+201211552932</span>
+                        <span>+201019679660</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="copyright ">@Tell me more</p>
+    </div>
+    <!-- end footer -->
+</body>
+
+</html>
